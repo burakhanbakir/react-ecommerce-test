@@ -25,15 +25,26 @@ export default class App extends Component {
   };
   addToCart=(product)=>{
     let newCart = this.state.cart;
-    //var addedItem = newCart.find(c=>c.product.id===product.id);
-    newCart.push({product:product,quantity:1});
+    var addedItem = newCart.find(c=>c.product.id===product.id);
+    if(addedItem)
+    {
+      addedItem.quantity++;
+    }
+    else{
+      newCart.push({product:product,quantity:1});
+    }
     this.setState({cart:newCart});
+  }
+
+  removeFromCart=(product)=>{
+    let newCart = this.state.cart.filter(c=>c.product.id!==product.id)
+    this.setState({cart:newCart})
   }
   render() {
 
     return (
       <Container>
-        <Navi cart={this.state.cart} />
+        <Navi removeFromCart={this.removeFromCart} cart={this.state.cart} />
         <Row>
           <Col xs="3">
             <Categories currentCategory={this.state.currentCategory} changeCategory={this.changeCategory} />

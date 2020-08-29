@@ -1,4 +1,5 @@
 import React from "react";
+import CartSummary from './CartSummary';
 import {
   Collapse,
   Navbar,
@@ -6,7 +7,8 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+
 } from "reactstrap";
 
 
@@ -33,25 +35,14 @@ export default class Navi extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink>
-                
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>
-                
-                </NavLink>
-              </NavItem>
-              <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">
-                 {this.props.cart.length}
                 </NavLink>
               </NavItem>
-            
+            <CartSummary removeFromCart={this.props.removeFromCart} cart={this.props.cart}/>
             </Nav>
           </Collapse>
         </Navbar>
       </div>
     );
   }
-}
+  }
