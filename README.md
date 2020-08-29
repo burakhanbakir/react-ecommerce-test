@@ -1,4 +1,4 @@
-This application is developed by brosfer.
+Applıcation is developed by brosfer.
 
 ## Demo
 https://burakhanbakir.github.io/react-ecommerce-test/
